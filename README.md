@@ -87,3 +87,8 @@ The optional **Registered ILUA extents** layer contains six South West Settlemen
 The Atlas is a reference display. The National Native Title Tribunal register, agreement schedules and source spatial data remain authoritative. Do not use the Atlas alone for legal, tenure, heritage or operational decisions.
 
 The superseded 43-point `noongar_iluas_bounding_coordinates.csv` development file is not included in the release package.
+
+
+## Interface defaults in rc4
+
+Language groups and ILUA boundaries are visible on first load. Basemap, language-group fill, language-group boundaries, labels, location markers and ILUA boundary opacity default to 25%. The Layers panel is ordered as Basemaps, Language groups, Indigenous Land Use Agreements (ILUAs), and Locations. The language-group legend now sits in the collapsible left pane. Interface text uses 0.3 px tighter letter spacing.
