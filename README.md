@@ -1,6 +1,6 @@
 # Noongar Boodja | Geographic & Language Atlas
 
-**Release v1.0-rc6.7 · 17 November 2026**
+**Release v1.0-rc6.8 · 17 November 2026**
 
 ## Key references
 
@@ -128,3 +128,12 @@ Key changes:
 - **Research notebook:** the "you may need to sign in" note was removed; the link is a public share link.
 - **Address and postcode search is switched on** with the origin-restricted Geoapify key. A refused request (for example from a local copy) shows a plain message instead of an HTTP error.
 - **About tab clean-up:** removed four source links for the government map layers deleted in rc6 (DBCA reserves, MINEDEX, hydrography, Ramsar wetlands) and added the four key references. Fixed the broken LICENSE and third-party notice links (they pointed to a misspelt folder); they now open the files on GitHub.
+
+### v1.0-rc6.8 changes
+
+- **Fix: locations could not be clicked on the online map.** A transparent ILUA drawing layer sat above the location markers and caught every click, so clicking a dot selected a bare coordinate instead of the place. Location markers now sit in their own top layer.
+- **Bigger click targets.** Each marker has a 26 px click area (34 px on touch screens), even though the symbol itself is smaller. A click or tap within 16 px (22 px on touch) of a visible location selects that location. Where symbols overlap, the one nearest the pointer is chosen.
+- **Wagyl places quick view** shows its symbols about a third larger.
+- **Marker symbols by category** (shape and colour, so meaning does not rely on colour alone): City / major centre = square; Town / locality = small dot; Natural feature = triangle; Historic / heritage = diamond; Industrial / infrastructure = hexagon; Mine / extractive = cross; Place of cultural relevance = ring. The symbols appear in the Layers panel, the Places list and the offline map. Hovering a symbol shows its name.
+- **Selected place** is marked with an orange ring that never blocks clicks.
+- **Fix (offline map):** clicking a location symbol on the offline vector map now selects that place.
