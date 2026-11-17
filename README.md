@@ -1,6 +1,16 @@
 # Noongar Boodja | Geographic & Language Atlas
 
-**Release v1.0-rc6.5 · 17 November 2026**
+**Release v1.0-rc6.6 · 17 November 2026**
+
+## Key references
+
+The Atlas is a guide only. It does not decide Traditional Ownership, cultural authority, native title, Aboriginal heritage status, legal boundaries or who can speak for Country. It draws on these main references:
+
+- **South West Native Title Settlement:** [About the Settlement Agreement](https://www.noongar.org.au/about-settlement-agreement), South West Aboriginal Land and Sea Council. Background on the Settlement and its six Indigenous Land Use Agreements (ILUAs).
+- **ILUA boundaries:** [Native Title (ILUA) (LGATE-067)](https://catalogue.data.wa.gov.au/dataset/native-title-ilua-lgate-067), Landgate, published on data.wa.gov.au. This is the source of the six ILUA extents and the 1,695 vertices in `noongar_iluas_official_vertices.csv`. Use of Landgate data is subject to Landgate's licence terms. Official ILUA records are held on the National Native Title Tribunal (NNTT) register.
+- **Background research:** [Atlas research notebook](https://notebook.google.com/notebook/b07170cd-9173-46c6-889b-3ad53c32249c) (Google). The notebook may need sign-in or shared access. It is a working research aid, not a published source.
+
+Other sources are listed in `THIRD_PARTY_NOTICES.md` and, for each place of cultural relevance, in `noongar_places_candidate_register.csv`.
 
 A single-file interactive atlas (`index.html`) for exploring **indicative** Noongar language-group geography in south-western Western Australia. The Atlas is a geographic reference, not a legal or cultural determination of Traditional Ownership, native title, language authority, or Aboriginal heritage status.
 
@@ -121,3 +131,9 @@ Key changes:
   - A key explaining this is at the top of the Layers panel and in the Language-group key panel. Full names ("Whadjuk language group", "Whadjuk People ILUA") remain in label hover text, tooltips, the Layers panel and the result panel.
 - **"South West Boojarah":** the "#2" was removed everywhere, including the embedded data and `noongar_iluas_official_vertices.csv`. *Traceability note:* the National Native Title Tribunal (NNTT) register lists this agreement as "South West Boojarah #2". Use the NNTT ID WI2017/013 to match Atlas records to the register.
 - **Preferences:** the storage key moved to `noongar-atlas-view-v10`. v9 and v8 settings are migrated once.
+
+### v1.0-rc6.6 changes
+
+- The "About this indicative map" panel is now **About this map and its sources**. It explains in plain English what the map is and is not, and links to the three key references above. It is still collapsed by default. Its text scrolls inside the panel if space is short.
+- The About panel and the Language-group key now open one at a time. Opening one closes the other, so both fit above the footer on smaller screens.
+- README: new **Key references** section.
