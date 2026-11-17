@@ -1,6 +1,6 @@
 # Noongar Boodja | Geographic & Language Atlas
 
-**Version 4 · 17 November 2026**
+**First release candidate · 17 November 2026**
 
 A single-file interactive atlas (`index.html`) for exploring **indicative** Noongar language-group geography in south-western Western Australia. The Atlas is a geographic reference, not a legal or cultural determination of Traditional Ownership, native title, language authority, or Aboriginal heritage status.
 
@@ -12,7 +12,7 @@ A single-file interactive atlas (`index.html`) for exploring **indicative** Noon
 - Coordinate lookup, nearest mapped edge distance, on-line group candidates, nearby group boundaries, map filters, share links and CSV exports.
 - Address and postcode lookup via optional **Geoapify forward geocoding**, with user-selected candidates displayed as map markers. The site operator must supply an origin-restricted API key before the public geocoder is active.
 - Browser-permitted device geolocation on mobile and desktop, with an indicative reported accuracy radius, visible map centring and language-group classification.
-- Three basemaps: Geoscience Australia topographic, Esri terrain/roads and Esri satellite imagery. Optional WA government WMS overlays for conservation, mines, rivers, wetlands and mining tenements.
+- Three basemaps: Geoscience Australia topographic, Esri terrain/roads and Esri satellite imagery.
 
 ## New in version 4
 
@@ -54,7 +54,7 @@ A single-file interactive atlas (`index.html`) for exploring **indicative** Noon
 1. Create a **public repository** in your GitHub account (for example, `Noongar-Boodja-Atlas`).
 2. Place this ZIP's `index.html`, `README.md`, `LICENSE.md` and `THIRD_PARTY_NOTICES.md` in the repository root.
 3. In the repository's **Settings → Pages**, configure **Deploy from a branch**, choosing `main` and `/ (root)`.
-4. Open the published URL, normally `https://<username>.github.io/<repository>/`, and test online basemaps and external WMS layers on desktop and mobile.
+4. Open the published URL, normally `https://<username>.github.io/<repository>/`, and test online basemaps on desktop and mobile.
 5. Keep the source attributions and licence documents alongside the HTML.
 
 The embedded geographic calculations and vector fallback work without an external GIS backend, but Leaflet is currently loaded through a CDN. The satellite, terrain and other online map layers require an internet connection. The Atlas is **not** guaranteed to be completely offline-capable.
@@ -74,7 +74,20 @@ See `LICENSE.md` and `THIRD_PARTY_NOTICES.md`. The custom additional permission 
 - The HTML's polygons, places and aliases were checked as **byte-for-byte equivalent JSON records** to the previously delivered Atlas version.
 - Spatial tests include Perth, Bunbury, a two-group border, a three-group junction, and **110 additional independent random point-in-polygon tests** against the original shapefile geometry.
 - Headless-browser checks cover desktop and multiple mobile viewport sizes (including 320, 375, 390 and 515 CSS px), bottom-sheet states, visible primary results, tooltip/coordinate positioning, panel collapse, basic search and offline vector mode.
-- The **Leaflet application hooks**, including the GPS accuracy circle, were tested using a simulated Leaflet environment; this is **not** a substitute for full live browser testing against actual online Geoscience Australia, Esri or WA WMS endpoints. Those remain outstanding before publication.
+- The **Leaflet application hooks**, including the GPS accuracy circle, were tested using a simulated Leaflet environment; this is **not** a substitute for full live browser testing against actual online Geoscience Australia or Esri endpoints. Those remain outstanding before publication.
 - Geoapify address results were tested against a **mock service**, not a live API key; live geocoding and provider quota behaviour require testing after configuration. Place-centre coordinates remain approximate, especially for large-area natural features, mines and industrial complexes. They should not be used for heritage clearances or site-level decisions.
 
 The site has **not** been published to any GitHub account by this package.
+
+## Indicative ILUA frames
+
+The optional **Indicative ILUA frames** layer contains six simplified frames constructed from 43 ordered reference coordinates supplied in `noongar_iluas_bounding_coordinates.csv`:
+
+- Yued ILUA, WI2017/018
+- Whadjuk People ILUA, WI2017/017
+- Ballardong People ILUA, WI2017/012
+- Gnaala Karla Booja ILUA, WI2017/015
+- South West Boojarah ILUA, WI2017/014
+- Wagyl Kaip and Southern Noongar ILUA, WI2017/013
+
+The layer is off by default. The dashed frames are orientation aids only. They are not registered ILUA boundaries and must not be used for legal, tenure, heritage or operational decisions. Use the National Native Title Tribunal register and registered agreement material for authoritative ILUA information.

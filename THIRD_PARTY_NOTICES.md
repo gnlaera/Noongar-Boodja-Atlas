@@ -16,3 +16,7 @@ This registry distinguishes Atlas-original work from separate content and servic
 **WBE reference:** the World Bathymetry Explorer provided design inspiration, not a licence for wholesale copying of GPL-licensed source code. The Atlas code should remain independently written; review provenance before including any WBE code, since GNU GPL derivative obligations cannot be overridden with a commercial-use ban.
 
 **Data governance:** publishing a layer with permission is not the same as having the right to issue downstream commercial or noncommercial licences to its constituent geographic records. Confirm that any language-group data permission covers the specific public repository and use by Indigenous organisations envisaged here.
+
+## Indicative ILUA framing dataset
+
+The Atlas embeds 43 approximate reference vertices from `noongar_iluas_bounding_coordinates.csv` to draw six simplified ILUA frames. The CSV records ILUA names, National Native Title Tribunal identifiers, regional corporation names, ordered reference points and approximate locations. These points do not establish the registered legal boundaries. The resulting frames are orientation aids only and must not be used for legal, tenure, heritage or operational decisions.
