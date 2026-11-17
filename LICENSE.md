@@ -1,8 +1,7 @@
 # Noongar Boodja Atlas: Noncommercial and Indigenous Community Licensing
 
-**Version 1.0 release candidate**  
-**Dated:** 17 November 2026  
-**Status:** Proposed terms. Australian legal review and confirmation of source-data rights are advised before relying on these terms as final.
+**Version 1.0 (proposed terms; legal and source-rights review advised before public release)**  
+**Dated:** 17 November 2026
 
 ## 1. Scope and copyright
 

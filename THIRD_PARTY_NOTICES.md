@@ -17,6 +17,7 @@ This registry distinguishes Atlas-original work from separate content and servic
 
 **Data governance:** publishing a layer with permission is not the same as having the right to issue downstream commercial or noncommercial licences to its constituent geographic records. Confirm that any language-group data permission covers the specific public repository and use by Indigenous organisations envisaged here.
 
-## Indicative ILUA framing dataset
 
-The Atlas embeds 43 approximate reference vertices from `noongar_iluas_bounding_coordinates.csv` to draw six simplified ILUA frames. The CSV records ILUA names, National Native Title Tribunal identifiers, regional corporation names, ordered reference points and approximate locations. These points do not establish the registered legal boundaries. The resulting frames are orientation aids only and must not be used for legal, tenure, heritage or operational decisions.
+## Registered ILUA spatial-data extract
+
+The Atlas embeds 1,695 ordered vertices from `noongar_iluas_official_vertices.csv` for six South West Settlement ILUAs. The file records registered agreement names, National Native Title Tribunal identifiers, regional corporations, registration dates, reported areas and vertex coordinates. The Atlas reproduces the supplied source extract as a reference display. Users must refer to the National Native Title Tribunal register, agreement schedules and source spatial dataset for authoritative information and applicable reuse conditions.
