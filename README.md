@@ -1,13 +1,13 @@
 # Noongar Boodja | Geographic & Language Atlas
 
-**Release v1.0-rc6.4 · 17 November 2026**
+**Release v1.0-rc6.5 · 17 November 2026**
 
 A single-file interactive atlas (`index.html`) for exploring **indicative** Noongar language-group geography in south-western Western Australia. The Atlas is a geographic reference, not a legal or cultural determination of Traditional Ownership, native title, language authority, or Aboriginal heritage status.
 
 ## Contents
 
 - **12 language-group polygons**, with 3,418 ring vertices and 3,401 connecting segments, retained from the user-supplied source shapefiles.
-- **345 reference locations** (v1.0-rc6.4), originally **290 curated reference places**, including cities, towns, natural landmarks, heritage sites, industrial facilities and mines. Many are indicative pins rather than surveyed site centres.
+- **345 reference locations** (from v1.0-rc6.4; originally **290 curated reference places**), including cities, towns, natural landmarks, heritage sites, industrial facilities and mines. Many are indicative pins rather than surveyed site centres.
 - **98 language-name records**, with common, historical and source-map variants, including caution flags for ambiguous names.
 - Coordinate lookup, nearest mapped edge distance, on-line group candidates, nearby group boundaries, map filters, share links and CSV exports.
 - Address and postcode lookup via optional **Geoapify forward geocoding**, with user-selected candidates displayed as map markers. The site operator must supply an origin-restricted API key before the public geocoder is active.
@@ -90,23 +90,34 @@ Key changes:
 - Selecting a place of cultural relevance shows its public source, publisher, coordinate quality and limitation.
 - The public points are orientation references, not Aboriginal heritage-site boundaries and not determinations of cultural authority.
 - Basemap opacity defaults to 100%, language-group fill to 22%, language-group boundaries to 70%, ILUA boundaries to 80%, labels to 100%, and location markers to 85%.
-- Language-group and ILUA labels use fully opaque, high-contrast text boxes.
+- Language-group and ILUA labels use opaque text boxes. From v1.0-rc6.5 they are styled differently: see the v1.0-rc6.5 notes below.
 - Government Web Map Service overlays and selectors are removed.
 - Keyboard focus indicators and an accessible map-region label are included.
 
 
 ### v1.0-rc6.4 changes
 
-- **Label colours.** Language-group and ILUA labels now take their border colour from the polygon or ILUA line colour. Label text uses a darker shade of the same colour so it stays readable (at least 4.5:1 contrast on the white label box). ILUA labels keep a dashed border to match the dashed ILUA lines.
-- **Shorter language-group labels.** Labels now read "Whadjuk Lang. Group" and are centred on the polygon centre. ILUA labels use the short title-case names, for example "Gnaala Karla Booja ILUA". Full official agreement names remain in the data and the ILUA tooltip.
-- **21 Wagyl register places added.** Records WAG-001 to WAG-021 from the supplied Wagyl register are in the normal Locations catalogue as "Place of cultural relevance" (Atlas IDs 325 to 345). Total locations: 345. Places of cultural relevance: 57.
-  - These records list compiled references but **no public URL**. The Atlas shows "no public URL recorded", "Not reviewed" and "Conditional - cultural review required" for each one.
-  - Searchable by site name, traditional name, bracketed current name, register ID (for example WAG-010), place type, category and "Wagyl".
-- **Fix: places of cultural relevance now draw on the map.** In rc6.3 the category was missing from the category list, so the 36 points were searchable but never drawn as markers. It now has its own Layers checkbox and a "Cultural" filter in the Places tab.
-- **Fix: evidence panels no longer stack.** Selecting several cultural places in a row used to stack evidence panels. Selecting a town, group or Clear also left a stale panel behind.
-- **Fix: polygon fill readout** now shows the real default (22%), not 29%.
-- **Data:** the `inside` (language-group) array is now calculated for places of cultural relevance. It uses the same point-in-polygon test as the other records, so these places now appear in group filters and counts. Each cultural record also carries `refId` and `publicDisplay`.
-- **Preferences:** the storage key moved to `noongar-atlas-view-v9`. v8 settings are migrated once and the cultural category is switched on. Saved ILUA visibility settings are now restored. Leftover government-layer settings were removed.
-- **Register CSV:** `noongar_places_candidate_register.csv` now holds all 57 records, with new `Alternate_Names`, `Region_Named_In_Source` and `Atlas_ID` columns.
+- **Label colours:** label borders take the polygon colour. Label text uses a darker shade of the same colour, with at least 4.5:1 contrast.
+- **21 Wagyl register places added** (WAG-001 to WAG-021) as "Place of cultural relevance" (Atlas IDs 325 to 345). Total locations: 345. Places of cultural relevance: 57. These records have **no public URL**. They show "no public URL recorded", "Not reviewed" and "Conditional - cultural review required".
+- **Fix:** places of cultural relevance now draw on the map. In rc6.3 the category was missing from the category list.
+- **Fix:** evidence panels no longer stack or persist after another selection.
+- **Fix:** the polygon fill readout shows the real default (22%).
+- **Data:** places of cultural relevance now have their language-group (`inside`) values, so group filters and counts include them.
+- **Register CSV:** `noongar_places_candidate_register.csv` holds all 57 records, with new `Alternate_Names`, `Region_Named_In_Source` and `Atlas_ID` columns.
 
-**Before public release:** the Wagyl records need cultural review by the relevant Noongar cultural authority and verified public sources. WAG-007 refers to women's lore and WAG-017 is a reburial place, so review those first.
+### v1.0-rc6.5 changes
+
+- **Compact header:** reduced from 68 px to 48 px. The tagline and the "12 mapped groups" and location-count pills were removed; the counts are still on the Explore tab.
+- **Quick views:** four buttons in the header: All layers, Language groups, ILUAs and Wagyl places. On screens 860 px wide or narrower they are in the ⋯ menu. A quick view sets which layers show. It keeps the basemap and opacity settings. Any manual layer change clears it, and Restore default layers clears it too. The active quick view is saved with display preferences.
+  - *All layers:* language groups, ILUAs and all locations (the default).
+  - *Language groups:* language groups and major centres only.
+  - *ILUAs:* ILUA boundaries and major centres only.
+  - *Wagyl places:* only the 21 Wagyl register records, shown at every zoom level.
+- **ILUAs are lines only.** There is no fill. Each ILUA is a dark solid casing under a bright dotted line in its own colour. At least one part of the line contrasts with each basemap: the dark casing on light maps, the bright dots on imagery. Where two ILUAs meet, both colours show along the shared border. With no fill, clicking inside an ILUA now selects that point instead of zooming to the ILUA.
+- **New ILUA colours:** Yued #FF3D9A, Whadjuk People #FFD60A, Ballardong People #22D3EE, Gnaala Karla Booja #FF7A1A, South West Boojarah #A3E635, Wagyl Kaip & Southern Noongar #C084FC. These are bright and kept apart from the muted language-group colours.
+- **Label styles carry the meaning, so suffixes are dropped on the map:**
+  - Language groups: *italic*, normal case, white box tinted to the group colour (e.g. *Whadjuk*).
+  - ILUAs: **BOLD CAPITALS** in a dark box with a dotted border in the ILUA colour (e.g. **WHADJUK PEOPLE**).
+  - A key explaining this is at the top of the Layers panel and in the Language-group key panel. Full names ("Whadjuk language group", "Whadjuk People ILUA") remain in label hover text, tooltips, the Layers panel and the result panel.
+- **"South West Boojarah":** the "#2" was removed everywhere, including the embedded data and `noongar_iluas_official_vertices.csv`. *Traceability note:* the National Native Title Tribunal (NNTT) register lists this agreement as "South West Boojarah #2". Use the NNTT ID WI2017/013 to match Atlas records to the register.
+- **Preferences:** the storage key moved to `noongar-atlas-view-v10`. v9 and v8 settings are migrated once.

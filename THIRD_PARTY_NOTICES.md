@@ -23,4 +23,8 @@ The Atlas integrates 36 public representative points into the main Locations cat
 
 ### v1.0-rc6.4 supplied Wagyl register records
 
-The Atlas also includes 21 records (WAG-001 to WAG-021) from a supplied Wagyl geolocated register. The register lists compiled references, including internal knowledge compilations, reports and some Wikipedia pages. It does not record a publisher or public URL. These records are labelled "Supplied register - not publicly verified". They have not been reviewed by the relevant Noongar cultural authority. Rights in the underlying cultural knowledge stay with the relevant Noongar people and are not relicensed by the Atlas.
+The Atlas also includes 21 records (WAG-001 to WAG-021) from a supplied Wagyl geolocated register. The register lists compiled references, including internal compilations, reports and some Wikipedia pages. It does not record a publisher or public URL. These records are labelled "Supplied register - not publicly verified" and have not been reviewed by the relevant Noongar cultural authority. Rights in the underlying cultural knowledge stay with the relevant Noongar people and are not relicensed by the Atlas.
+
+### v1.0-rc6.5 ILUA naming
+
+ILUA display names are shortened for readability. "South West Boojarah #2" is shown as "South West Boojarah". Official register entries should be matched by NNTT ID (e.g. WI2017/013).
