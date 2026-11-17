@@ -79,22 +79,17 @@ See `LICENSE.md` and `THIRD_PARTY_NOTICES.md`. The custom additional permission 
 
 The site has **not** been published to any GitHub account by this package.
 
+## v1.0-rc6 stabilisation and consolidation
 
-## Registered ILUA extents
+This release keeps the single-file `index.html` deployment model while reorganising the file with clearer section comments and consolidated defaults.
 
-The optional **Registered ILUA extents** layer contains six South West Settlement agreement extents constructed from 1,695 ordered vertices in `noongar_iluas_official_vertices.csv`. The layer is off by default and can be enabled from the Layers panel. It includes the agreement name, National Native Title Tribunal identifier, regional corporation, registration date and reported area.
+Key changes:
 
-The Atlas is a reference display. The National Native Title Tribunal register, agreement schedules and source spatial data remain authoritative. Do not use the Atlas alone for legal, tenure, heritage or operational decisions.
-
-The superseded 43-point `noongar_iluas_bounding_coordinates.csv` development file is not included in the release package.
-
-
-## Interface defaults in rc4
-
-Language groups and ILUA boundaries are visible on first load. Basemap, language-group fill, language-group boundaries, labels, location markers and ILUA boundary opacity default to 25%. The Layers panel is ordered as Basemaps, Language groups, Indigenous Land Use Agreements (ILUAs), and Locations. The language-group legend now sits in the collapsible left pane. Interface text uses 0.3 px tighter letter spacing.
-
-## Public Noongar places candidate layer
-
-The Locations panel includes a separate selector for 36 public places of documented historical, cultural, spiritual or broader relevance to Noongar people. The points are public representative locations for orientation, not cultural-site boundaries. The accompanying `noongar_places_candidate_register.csv` records their provisional display names, place types, coordinates and review status. Cultural interpretation and public-display approval remain subject to review by the relevant cultural authority.
-
-Map labels use a consistent boxed style: `XYZ ILUA` for Indigenous Land Use Agreements and `XYZ Language Group` for language groups. The live coordinate display is located in the Atlas Explorer left pane rather than floating over the map.
+- 36 public-source places are integrated into the normal Locations catalogue under `Place of cultural relevance`.
+- All 36 are displayed and searchable by display name, alternate name, category and place type.
+- Selecting a place of cultural relevance shows its public source, publisher, coordinate quality and limitation.
+- The public points are orientation references, not Aboriginal heritage-site boundaries and not determinations of cultural authority.
+- Basemap opacity defaults to 100%, language-group fill to 22%, language-group boundaries to 70%, ILUA boundaries to 80%, labels to 100%, and location markers to 85%.
+- Language-group and ILUA labels use fully opaque, high-contrast text boxes.
+- Government Web Map Service overlays and selectors are removed.
+- Keyboard focus indicators and an accessible map-region label are included.
