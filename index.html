@@ -295,7 +295,7 @@ const DATA=JSON.parse(document.getElementById('atlasData').textContent);
 // Atlas v4: Add an origin-restricted browser API key before publishing a public address search.
 // Create the free key at https://myprojects.geoapify.com/ and restrict to your GitHub Pages origin.
 // Search is still fully functional for embedded places/groups/coordinates until a key is provided.
-const GEOAPIFY_KEY = ''; // OWNER SETUP: use an origin-restricted Geoapify browser key (public in HTML).
+const GEOAPIFY_KEY = '38d2b6f0115b4114983c7a98bc47f7c6'; // OWNER SETUP: use an origin-restricted Geoapify browser key (public in HTML).
 const GEOAPIFY_ENDPOINT = 'https://api.geoapify.com/v1/geocode/search';
 const GEO_SCOPE = 'rect:114.0,-35.7,122.5,-29.1|countrycode:au';
 const hasGeoKey=()=>GEOAPIFY_KEY.trim().length>12;
@@ -484,7 +484,7 @@ function refreshMapDisplay(){saveDisplayPrefs();if(state.mapMode==='leaflet'){fo
 function polygonAsGeo(g){return {type:'Feature',properties:{id:g.id,name:g.name},geometry:{type:g.coords.length===1?'Polygon':'MultiPolygon',coordinates:g.coords.length===1?g.coords[0]:g.coords}};}
 function drawLabelsLeaflet(){if(state.labelLayer)state.map.removeLayer(state.labelLayer);state.labelLayer=L.layerGroup();if(!state.showLabels)return;for(const g of DATA.groups){if(!state.showPolygons)continue;L.marker(g.center,{icon:L.divIcon({className:'',html:'<span style="display:block;white-space:nowrap;font-size:11px;font-weight:750;color:#254c47;text-shadow:-1px -1px white,1px 1px white,2px 2px white">'+esc(g.name.split(' / ')[0])+'</span>',iconSize:[100,18],iconAnchor:[50,8]}),opacity:state.labelOpacity,interactive:false}).addTo(state.labelLayer);}state.labelLayer.addTo(state.map);}
 function drawPlacesLeaflet(){if(state.placeLayer)state.map.removeLayer(state.placeLayer);state.placeLayer=L.layerGroup();if(!state.showPlaces)return;const z=state.map.getZoom();for(const p of DATA.places){if(!state.activeCats.has(p.category))continue;if(z<=8 && p.category==='Town / locality')continue;if(z<=7&&p.category!=='City / major centre')continue;const marker=L.circleMarker([p.lat,p.lon],{radius:p.category==='City / major centre'?5:3.8,color:'#fff',weight:1.4,opacity:state.markerOpacity,fillOpacity:.96*state.markerOpacity,fillColor:categoryColor[p.category]});marker.on('click',e=>{L.DomEvent.stopPropagation(e);selectPlace(p)});marker.bindTooltip(p.name,{direction:'top',opacity:.95});marker.addTo(state.placeLayer);}state.placeLayer.addTo(state.map);}
-function setupLeaflet(){state.mapMode='leaflet';$('fallbackMap').style.display='none';const map=state.map=L.map('map',{zoomControl:false,preferCanvas:true,minZoom:5,maxZoom:19,worldCopyJump:false});L.control.zoom({position:'topright'}).addTo(map);L.control.scale({imperial:false,position:'bottomleft',maxWidth:120}).addTo(map);map.setView([state.lat,state.lon],state.zoom);switchBasemap(state.base);for(const g of DATA.groups){const l=L.geoJSON(polygonAsGeo(g),{style:{color:g.color,opacity:state.outlineOpacity,weight:1.6,fillColor:g.color,fillOpacity:state.opacity},onEachFeature:(f,layer)=>{layer.on('mouseover',()=>layer.setStyle({weight:2.8,opacity:state.outlineOpacity,fillOpacity:Math.min(.5,state.opacity+.15)}));layer.on('mouseout',()=>layer.setStyle({weight:1.6,opacity:state.outlineOpacity,fillOpacity:state.opacity}));layer.on('click',e=>{L.DomEvent.stopPropagation(e);const q=e.latlng;selectPoint(q.lat,q.lng,{name:'Map selection',subtype:'Within or near '+g.name,zoom:map.getZoom()});});}});state.polyLayers[g.id]=l;l.addTo(map);}map.on('click',e=>selectPoint(e.latlng.lat,e.latlng.lng,{zoom:map.getZoom()}));map.on('mousemove',e=>updateCoords(e.latlng.lat,e.latlng.lng));map.on('zoomend',()=>drawPlacesLeaflet());map.on('moveend',()=>{state.zoom=map.getZoom()});refreshMapDisplay();}
+function setupLeaflet(){state.mapMode='leaflet';$('fallbackMap').style.display='none';const map=state.map=L.map('map',{zoomControl:false,preferCanvas:true,minZoom:5,maxZoom:19,worldCopyJump:false});map.createPane('governmentOverlayPane');map.getPane('governmentOverlayPane').style.zIndex='450';map.getPane('governmentOverlayPane').style.pointerEvents='none';L.control.zoom({position:'topright'}).addTo(map);L.control.scale({imperial:false,position:'bottomleft',maxWidth:120}).addTo(map);map.setView([state.lat,state.lon],state.zoom);switchBasemap(state.base);for(const g of DATA.groups){const l=L.geoJSON(polygonAsGeo(g),{style:{color:g.color,opacity:state.outlineOpacity,weight:1.6,fillColor:g.color,fillOpacity:state.opacity},onEachFeature:(f,layer)=>{layer.on('mouseover',()=>layer.setStyle({weight:2.8,opacity:state.outlineOpacity,fillOpacity:Math.min(.5,state.opacity+.15)}));layer.on('mouseout',()=>layer.setStyle({weight:1.6,opacity:state.outlineOpacity,fillOpacity:state.opacity}));layer.on('click',e=>{L.DomEvent.stopPropagation(e);const q=e.latlng;selectPoint(q.lat,q.lng,{name:'Map selection',subtype:'Within or near '+g.name,zoom:map.getZoom()});});}});state.polyLayers[g.id]=l;l.addTo(map);}map.on('click',e=>selectPoint(e.latlng.lat,e.latlng.lng,{zoom:map.getZoom()}));map.on('mousemove',e=>updateCoords(e.latlng.lat,e.latlng.lng));map.on('zoomend',()=>drawPlacesLeaflet());map.on('moveend',()=>{state.zoom=map.getZoom()});refreshMapDisplay();}
 const fallback={center:[-32.65,117.25],zoom:1,down:null,dragging:false,width:1000,height:720};
 function fbCy(){
  if(!matchMedia('(max-width:720px)').matches)return 360;
@@ -516,11 +516,14 @@ function toggleWMS(kind,enabled){
   tenements:{service:'Industry_and_Mining',id:'3',alpha:.52,credit:'Mining tenements'}
  };
  const cfg=opts[kind];if(!cfg)return;
- const url='https://public-services.slip.wa.gov.au/public/services/SLIP_Public_Services/'+cfg.service+'/MapServer/WMSServer';
- const layer=L.tileLayer.wms(url,{layers:cfg.id,format:'image/png',transparent:true,version:'1.3.0',opacity:state.externalOpacity[kind],attribution:'WA SLIP / Landgate · '+cfg.credit,maxZoom:19});
- layer.on('tileerror',()=>{$('externalStatus').textContent='A WA government map overlay could not load. Check the external service; the embedded lookup remains functional.';});
+ const url='https://services.slip.wa.gov.au/public/services/SLIP_Public_Services/'+cfg.service+'/MapServer/WMSServer';
+ let loaded=0,failed=0;
+ const layer=L.tileLayer.wms(url,{layers:String(cfg.id),styles:'',format:'image/png',transparent:true,version:'1.1.1',uppercase:true,pane:'governmentOverlayPane',opacity:state.externalOpacity[kind],attribution:'WA SLIP / Landgate · '+cfg.credit,maxZoom:19});
+ layer.on('loading',()=>{$('externalStatus').textContent='Loading '+cfg.credit+' from WA SLIP…';});
+ layer.on('tileload',()=>{loaded++;$('externalStatus').textContent=cfg.credit+' loaded from WA SLIP ('+loaded+' map tiles).';});
+ layer.on('tileerror',()=>{failed++;$('externalStatus').textContent=cfg.credit+' could not load from WA SLIP ('+failed+' failed map tiles). The government service may be unavailable or blocking the request.';});
  layer.addTo(state.map);state.contextLayers[kind]=layer;
- $('externalStatus').textContent='External services active. Layers may load slowly and follow their own licensing terms.';
+ setTimeout(()=>{if(state.external[kind]&&loaded===0&&failed===0)$('externalStatus').textContent='No response yet from '+cfg.credit+'. Try zooming in, or the WA SLIP service may be temporarily unavailable.';},8000);
 }
 
 const MOBILE_STAGES=['collapsed','preview','expanded'];
@@ -610,3 +613,4 @@ window.addEventListener('load',init,{once:true});window.addEventListener('resize
 </script>
 </body>
 </html>
+
