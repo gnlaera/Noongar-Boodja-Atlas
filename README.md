@@ -2,7 +2,7 @@
 
 <img src="noongar-boodja-atlas.jpg" alt="Noongar Boodja Atlas artwork" width="160" align="right"/>
 
-**Release v1.0-rc6.9 · 17 November 2026**
+**Release v1.0-rc6.10 · 17 November 2026**
 
 ## Key references
 
@@ -155,3 +155,13 @@ Key changes:
   - Share links now include the quick view (`?view=towns`) or the Wagyl filter (`?filter=wagyl`).
   - When only one or two categories are on, all their locations show at every zoom level. The zoom-based thinning still applies when three or more categories are on.
 - **Restore default layers** now also clears the Wagyl filter and the Places tab "Wagyl" chip.
+
+### v1.0-rc6.10 changes
+
+- **First-load defaults:** the Atlas opens with the **ILUAs** quick view selected and the **Atlas Explorer closed**, so the map uses the full width.
+  - Selecting a place, a language group or a map point, or pressing Ctrl+K / ⌘K, opens the Explorer automatically so the result or search box is visible. The ☰ Explorer button opens it at any time.
+  - Shared links that select a place, group or coordinate open with the Explorer showing the result. Links with `?view=` open that quick view instead of ILUAs.
+  - Returning visitors keep their last saved layer settings. The Explorer always starts closed.
+  - On mobile the Explorer already starts as a collapsed bottom sheet; that is unchanged.
+  - The offline map cannot draw ILUAs, so it opens with All layers instead.
+- **Restore default layers** now returns to the same first-load view (ILUAs quick view, default opacities, Australian topographic basemap).
