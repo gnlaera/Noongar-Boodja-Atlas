@@ -1,6 +1,8 @@
 # Noongar Boodja | Geographic & Language Atlas
 
-**Release v1.0-rc6.8 · 17 November 2026**
+<img src="noongar-boodja-atlas.jpg" alt="Noongar Boodja Atlas artwork" width="160" align="right"/>
+
+**Release v1.0-rc6.9 · 17 November 2026**
 
 ## Key references
 
@@ -137,3 +139,19 @@ Key changes:
 - **Marker symbols by category** (shape and colour, so meaning does not rely on colour alone): City / major centre = square; Town / locality = small dot; Natural feature = triangle; Historic / heritage = diamond; Industrial / infrastructure = hexagon; Mine / extractive = cross; Place of cultural relevance = ring. The symbols appear in the Layers panel, the Places list and the offline map. Hovering a symbol shows its name.
 - **Selected place** is marked with an orange ring that never blocks clicks.
 - **Fix (offline map):** clicking a location symbol on the offline vector map now selects that place.
+
+### v1.0-rc6.9 changes
+
+- **Header artwork.** A small compressed copy (96 × 96 px, about 3 KB) of `noongar-boodja-atlas.jpg` is embedded in `index.html` as the header mark and browser-tab icon, so the single-file approach is kept. The full image stays in the repository for this README and for link previews (`og:image`).
+- **Eleven quick views** in one scrollable row: All layers, Language groups, ILUAs, Cities, Towns, Natural features, Heritage, Industry, Mines, Cultural places, Wagyl places. Category views show that category's symbol, show language-group areas for context, and frame the map to those places.
+  - Desktop: the row scrolls sideways (mouse wheel, trackpad or Tab key) with faded edges showing there is more.
+  - Mobile (720 px wide or narrower): the row is a second header line that can be swiped left and right. The quick views were removed from the ⋯ menu.
+- **How quick views and the Layers panel work together** (reviewed and tested for every quick view and every Layers control):
+  - A quick view is a starting point. It sets which layers and categories show, frames the map, and keeps your basemap and opacity settings.
+  - The Layers panel always shows the real state. After any quick view, every tick box matches what is on the map.
+  - Changing a layer, ILUA, category or filter un-highlights the quick view but keeps everything else. Changing opacity or basemap keeps the quick view highlighted.
+  - **New "Wagyl register only" tick box** under Place of cultural relevance. It narrows only that category, so ticking Towns while in the Wagyl view adds towns without bringing back all 57 cultural places. It stays on until you untick it, choose another quick view, or Restore default layers.
+  - The Places tab list now follows the quick view, and has a new "Wagyl" filter chip.
+  - Share links now include the quick view (`?view=towns`) or the Wagyl filter (`?filter=wagyl`).
+  - When only one or two categories are on, all their locations show at every zoom level. The zoom-based thinning still applies when three or more categories are on.
+- **Restore default layers** now also clears the Wagyl filter and the Places tab "Wagyl" chip.

@@ -34,3 +34,7 @@ ILUA display names are shortened for readability. "South West Boojarah #2" is sh
 - **AIATSIS Map of Indigenous Australia** (David R Horton, © AIATSIS 1996): linked as further reading only. No AIATSIS map content is reproduced, and AIATSIS does not permit reproduction without permission.
 - **Western Australia SLIP public GIS services:** no longer used. The government map layers were removed in v1.0-rc6.
 - **Geoapify:** address and postcode search is now active, using a public browser key restricted to `https://gnlaera.github.io`. Search text is sent to Geoapify only when a user chooses the online address search.
+
+### v1.0-rc6.9 header artwork
+
+`noongar-boodja-atlas.jpg` and the small copy embedded in `index.html` were generated with an AI image tool by the project maintainer for this side project, and approved for use in the Atlas by GKB staff. The artwork is decorative. It is not a map, does not show real boundaries or sites, and is not the work of a named Aboriginal artist. Do not reuse it outside the Atlas without checking with GKB.
