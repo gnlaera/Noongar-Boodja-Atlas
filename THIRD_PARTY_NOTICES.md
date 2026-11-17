@@ -20,3 +20,7 @@ This registry distinguishes Atlas-original work from separate content and servic
 ## v1.0-rc6 places of cultural relevance
 
 The Atlas integrates 36 public representative points into the main Locations catalogue. Source references are drawn from public materials published by the Department of Biodiversity, Conservation and Attractions, City of Fremantle, City of Bunbury and City of Albany. Each record identifies its source and carries a limitation stating that the point is not a cultural-site boundary and does not determine cultural authority. Public-source inclusion does not replace review by the relevant Noongar cultural authority.
+
+### v1.0-rc6.4 supplied Wagyl register records
+
+The Atlas also includes 21 records (WAG-001 to WAG-021) from a supplied Wagyl geolocated register. The register lists compiled references, including internal knowledge compilations, reports and some Wikipedia pages. It does not record a publisher or public URL. These records are labelled "Supplied register - not publicly verified". They have not been reviewed by the relevant Noongar cultural authority. Rights in the underlying cultural knowledge stay with the relevant Noongar people and are not relicensed by the Atlas.
