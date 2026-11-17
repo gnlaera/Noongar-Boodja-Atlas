@@ -92,3 +92,9 @@ The superseded 43-point `noongar_iluas_bounding_coordinates.csv` development fil
 ## Interface defaults in rc4
 
 Language groups and ILUA boundaries are visible on first load. Basemap, language-group fill, language-group boundaries, labels, location markers and ILUA boundary opacity default to 25%. The Layers panel is ordered as Basemaps, Language groups, Indigenous Land Use Agreements (ILUAs), and Locations. The language-group legend now sits in the collapsible left pane. Interface text uses 0.3 px tighter letter spacing.
+
+## Public Noongar places candidate layer
+
+The Locations panel includes a separate selector for 36 public places of documented historical, cultural, spiritual or broader relevance to Noongar people. The points are public representative locations for orientation, not cultural-site boundaries. The accompanying `noongar_places_candidate_register.csv` records their provisional display names, place types, coordinates and review status. Cultural interpretation and public-display approval remain subject to review by the relevant cultural authority.
+
+Map labels use a consistent boxed style: `XYZ ILUA` for Indigenous Land Use Agreements and `XYZ Language Group` for language groups. The live coordinate display is located in the Atlas Explorer left pane rather than floating over the map.

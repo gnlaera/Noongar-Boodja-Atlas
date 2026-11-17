@@ -21,3 +21,7 @@ This registry distinguishes Atlas-original work from separate content and servic
 ## Registered ILUA spatial-data extract
 
 The Atlas embeds 1,695 ordered vertices from `noongar_iluas_official_vertices.csv` for six South West Settlement ILUAs. The file records registered agreement names, National Native Title Tribunal identifiers, regional corporations, registration dates, reported areas and vertex coordinates. The Atlas reproduces the supplied source extract as a reference display. Users must refer to the National Native Title Tribunal register, agreement schedules and source spatial dataset for authoritative information and applicable reuse conditions.
+
+## Public Noongar places candidate register
+
+The Atlas includes 36 public representative points compiled from public government, local-government and cultural-information sources. These points are intended for orientation and do not reproduce registered Aboriginal heritage-site boundaries. Public documentation establishes a reason to investigate each place; it does not establish cultural authority, publication approval or a complete significance statement.
