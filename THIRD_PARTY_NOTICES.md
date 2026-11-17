@@ -8,7 +8,7 @@ This registry distinguishes Atlas-original work from separate content and servic
 | OpenStreetMap | Underlying names, contributed cartography and relevant Geoapify-geocoder source data | [Copyright and ODbL](https://www.openstreetmap.org/copyright); [tile use policy](https://operations.osmfoundation.org/policies/tiles/) |
 | Geoscience Australia | National basemap services | [Geoscience Australia mapping services](https://services.ga.gov.au/gis/rest/services); attribution and source-specific terms |
 | Esri | Optional imagery / reference basemaps | [Esri attribution requirements](https://developers.arcgis.com/documentation/esri-and-data-attribution/); access and tile-use conditions |
-| Western Australia SLIP public GIS services | Rivers, conservation, MINEDEX, wetlands or mining layers when enabled | Check the applicable dataset metadata and licence individually through the [WA Data Catalogue](https://catalogue.data.wa.gov.au/) and service provider |
+| Western Australia SLIP public GIS services | Not used since v1.0-rc6 (government map layers removed) | Check the applicable dataset metadata and licence individually through the [WA Data Catalogue](https://catalogue.data.wa.gov.au/) and service provider |
 | Geoapify | Optional online address/postcode geocoding on explicit user searches | [Geoapify Geocoding API and terms](https://apidocs.geoapify.com/docs/geocoding/); a free, origin-restricted API key is needed. Attribution to Geoapify and applicable OpenStreetMap data sources; geocoding and user queries may be processed by Geoapify. |
 | Original language-group shapefiles | The embedded 12 indicative language-group polygons and rings | **Redistribution permission reported by Atlas operator.** Original rightsholder, attribution and downstream sublicensing rights need documenting. |
 | Curated places and aliases | Atlas-original arrangement and original explanatory notes, where protected | CC BY-NC 4.0 plus alternative Indigenous community permission in [LICENSE.md](LICENSE.md), **excluding any third-party records subject to their own terms** |
@@ -28,3 +28,9 @@ The Atlas also includes 21 records (WAG-001 to WAG-021) from a supplied Wagyl ge
 ### v1.0-rc6.5 ILUA naming
 
 ILUA display names are shortened for readability. "South West Boojarah #2" is shown as "South West Boojarah". Official register entries should be matched by NNTT ID (e.g. WI2017/013).
+
+### v1.0-rc6.7 references and services
+
+- **AIATSIS Map of Indigenous Australia** (David R Horton, © AIATSIS 1996): linked as further reading only. No AIATSIS map content is reproduced, and AIATSIS does not permit reproduction without permission.
+- **Western Australia SLIP public GIS services:** no longer used. The government map layers were removed in v1.0-rc6.
+- **Geoapify:** address and postcode search is now active, using a public browser key restricted to `https://gnlaera.github.io`. Search text is sent to Geoapify only when a user chooses the online address search.

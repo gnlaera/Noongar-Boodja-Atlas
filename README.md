@@ -1,6 +1,6 @@
 # Noongar Boodja | Geographic & Language Atlas
 
-**Release v1.0-rc6.6 · 17 November 2026**
+**Release v1.0-rc6.7 · 17 November 2026**
 
 ## Key references
 
@@ -8,7 +8,8 @@ The Atlas is a guide only. It does not decide Traditional Ownership, cultural au
 
 - **South West Native Title Settlement:** [About the Settlement Agreement](https://www.noongar.org.au/about-settlement-agreement), South West Aboriginal Land and Sea Council. Background on the Settlement and its six Indigenous Land Use Agreements (ILUAs).
 - **ILUA boundaries:** [Native Title (ILUA) (LGATE-067)](https://catalogue.data.wa.gov.au/dataset/native-title-ilua-lgate-067), Landgate, published on data.wa.gov.au. This is the source of the six ILUA extents and the 1,695 vertices in `noongar_iluas_official_vertices.csv`. Use of Landgate data is subject to Landgate's licence terms. Official ILUA records are held on the National Native Title Tribunal (NNTT) register.
-- **Background research:** [Atlas research notebook](https://notebook.google.com/notebook/b07170cd-9173-46c6-889b-3ad53c32249c) (Google). The notebook may need sign-in or shared access. It is a working research aid, not a published source.
+- **Background research:** [Atlas research notebook](https://notebook.google.com/notebook/b07170cd-9173-46c6-889b-3ad53c32249c) (Google), shared as a public link. It is a working research aid, not a published source.
+- **Further reading:** [Map of Indigenous Australia](https://aiatsis.gov.au/explore/map-indigenous-australia), Australian Institute of Aboriginal and Torres Strait Islander Studies (AIATSIS). A national view of the general locations of larger language, social or nation groupings. AIATSIS states that it is not exact and not suitable for native title or other land claims. **It was not used to draw any area in this Atlas**, and some names and spellings differ. The AIATSIS map may not be reproduced without permission, so the Atlas links to it only.
 
 Other sources are listed in `THIRD_PARTY_NOTICES.md` and, for each place of cultural relevance, in `noongar_places_candidate_register.csv`.
 
@@ -20,7 +21,7 @@ A single-file interactive atlas (`index.html`) for exploring **indicative** Noon
 - **345 reference locations** (from v1.0-rc6.4; originally **290 curated reference places**), including cities, towns, natural landmarks, heritage sites, industrial facilities and mines. Many are indicative pins rather than surveyed site centres.
 - **98 language-name records**, with common, historical and source-map variants, including caution flags for ambiguous names.
 - Coordinate lookup, nearest mapped edge distance, on-line group candidates, nearby group boundaries, map filters, share links and CSV exports.
-- Address and postcode lookup via optional **Geoapify forward geocoding**, with user-selected candidates displayed as map markers. The site operator must supply an origin-restricted API key before the public geocoder is active.
+- Address and postcode lookup via optional **Geoapify forward geocoding**, with user-selected candidates displayed as map markers. The key is configured and restricted to the published GitHub Pages site (see below).
 - Browser-permitted device geolocation on mobile and desktop, with an indicative reported accuracy radius, visible map centring and language-group classification.
 - Three basemaps: Geoscience Australia topographic, Esri terrain/roads and Esri satellite imagery. (WA government WMS overlays were removed in v1.0-rc6.)
 
@@ -32,21 +33,13 @@ A single-file interactive atlas (`index.html`) for exploring **indicative** Noon
 - **Map framing:** Existing bottom-sheet-aware placement is retained. The GPS precision automatically selects a suitable zoom level.
 - **Privacy and resilience:** Address queries are third-party requests, with the provider identified in About. Embedded places, language groups, map-click lookup and GPS continue to work when no geocoding key is configured or the provider is unavailable.
 
-### Enable address and postcode searching for the public site
+### Address and postcode search (configured from v1.0-rc6.7)
 
-1. Create a [Geoapify account and free API key](https://www.geoapify.com/get-started-with-maps-api/). The published free allowance is currently 3,000 credits/day for a project, with one forward-geocode query charged one credit; verify current pricing.
-2. In Geoapify's API key settings, restrict permitted referrers/origins to the real GitHub Pages website (typically `https://gnlaera.github.io` and the exact Atlas page URL as supported by the provider). Do not use a privileged unrestricted key in publicly readable HTML.
-3. Open `index.html` and locate this line near the start of the application script:
-
-   ```js
-   const GEOAPIFY_KEY = ''; // OWNER SETUP
-   ```
-
-   Replace the empty quotes with your **origin-restricted browser key**. The key is visible to anyone viewing the HTML source; referrer/origin restrictions and quota controls are essential.
-4. Commit the updated `index.html`, and verify live searches such as `6000`, `Bunbury WA`, or `200 St Georges Terrace, Perth WA` from your GitHub Pages URL. Confirm the returned candidates and whether they are property, street, town or postcode reference points.
-5. Keep [Geoapify](https://apidocs.geoapify.com/docs/geocoding/) and OpenStreetMap attribution visible. Check and comply with the provider's privacy terms and usage limits. No external geocoding query is sent until the visitor selects the online search action.
-
-**Without this key, only the new external address/postcode lookup is inactive; all existing atlas searches and device-location functions remain operational.** It is not possible to keep a browser-delivered key secret inside a static public GitHub Pages site.
+- `index.html` contains the Atlas's Geoapify browser key (`GEOAPIFY_KEY`). A browser key is always visible in a public web page, so it is protected by restrictions, not secrecy.
+- In the Geoapify dashboard the key is restricted to the origin `https://gnlaera.github.io` and the Atlas referrer URLs under `https://gnlaera.github.io/Noongar-Boodja-Atlas/`. Requests from any other site are refused.
+- Because of this, **address search does not work when `index.html` is opened from a local folder or another website**. The Atlas then shows a short message; places, language groups, coordinates and GPS still work.
+- If the repository or GitHub account name changes, update the allowed origin and referrers in Geoapify first. If the key is ever misused, create a new restricted key and replace it in `index.html`.
+- Check usage and quota occasionally in the Geoapify dashboard. Keep Geoapify and OpenStreetMap attribution visible.
 
 ## Previously added in version 3
 
@@ -64,7 +57,7 @@ A single-file interactive atlas (`index.html`) for exploring **indicative** Noon
 1. Create a **public repository** in your GitHub account (for example, `Noongar-Boodja-Atlas`).
 2. Place this ZIP's `index.html`, `README.md`, `LICENSE.md` and `THIRD_PARTY_NOTICES.md` in the repository root.
 3. In the repository's **Settings → Pages**, configure **Deploy from a branch**, choosing `main` and `/ (root)`.
-4. Open the published URL, normally `https://<username>.github.io/<repository>/`, and test online basemaps and external WMS layers on desktop and mobile.
+4. Open the published URL, normally `https://<username>.github.io/<repository>/`, and test online basemaps and address search on desktop and mobile.
 5. Keep the source attributions and licence documents alongside the HTML.
 
 The embedded geographic calculations and vector fallback work without an external GIS backend, but Leaflet is currently loaded through a CDN. The satellite, terrain and other online map layers require an internet connection. The Atlas is **not** guaranteed to be completely offline-capable.
@@ -104,7 +97,6 @@ Key changes:
 - Government Web Map Service overlays and selectors are removed.
 - Keyboard focus indicators and an accessible map-region label are included.
 
-
 ### v1.0-rc6.4 changes
 
 - **Label colours:** label borders take the polygon colour. Label text uses a darker shade of the same colour, with at least 4.5:1 contrast.
@@ -117,23 +109,22 @@ Key changes:
 
 ### v1.0-rc6.5 changes
 
-- **Compact header:** reduced from 68 px to 48 px. The tagline and the "12 mapped groups" and location-count pills were removed; the counts are still on the Explore tab.
-- **Quick views:** four buttons in the header: All layers, Language groups, ILUAs and Wagyl places. On screens 860 px wide or narrower they are in the ⋯ menu. A quick view sets which layers show. It keeps the basemap and opacity settings. Any manual layer change clears it, and Restore default layers clears it too. The active quick view is saved with display preferences.
-  - *All layers:* language groups, ILUAs and all locations (the default).
-  - *Language groups:* language groups and major centres only.
-  - *ILUAs:* ILUA boundaries and major centres only.
-  - *Wagyl places:* only the 21 Wagyl register records, shown at every zoom level.
-- **ILUAs are lines only.** There is no fill. Each ILUA is a dark solid casing under a bright dotted line in its own colour. At least one part of the line contrasts with each basemap: the dark casing on light maps, the bright dots on imagery. Where two ILUAs meet, both colours show along the shared border. With no fill, clicking inside an ILUA now selects that point instead of zooming to the ILUA.
-- **New ILUA colours:** Yued #FF3D9A, Whadjuk People #FFD60A, Ballardong People #22D3EE, Gnaala Karla Booja #FF7A1A, South West Boojarah #A3E635, Wagyl Kaip & Southern Noongar #C084FC. These are bright and kept apart from the muted language-group colours.
-- **Label styles carry the meaning, so suffixes are dropped on the map:**
-  - Language groups: *italic*, normal case, white box tinted to the group colour (e.g. *Whadjuk*).
-  - ILUAs: **BOLD CAPITALS** in a dark box with a dotted border in the ILUA colour (e.g. **WHADJUK PEOPLE**).
-  - A key explaining this is at the top of the Layers panel and in the Language-group key panel. Full names ("Whadjuk language group", "Whadjuk People ILUA") remain in label hover text, tooltips, the Layers panel and the result panel.
-- **"South West Boojarah":** the "#2" was removed everywhere, including the embedded data and `noongar_iluas_official_vertices.csv`. *Traceability note:* the National Native Title Tribunal (NNTT) register lists this agreement as "South West Boojarah #2". Use the NNTT ID WI2017/013 to match Atlas records to the register.
-- **Preferences:** the storage key moved to `noongar-atlas-view-v10`. v9 and v8 settings are migrated once.
+- **Compact header:** reduced from 68 px to 48 px.
+- **Quick views:** All layers, Language groups, ILUAs and Wagyl places. On screens 860 px wide or narrower they are in the ⋯ menu. Any manual layer change, or Restore default layers, clears the quick view.
+- **ILUAs are lines only:** a dark solid casing under a bright dotted line in each ILUA's colour (Yued #FF3D9A, Whadjuk People #FFD60A, Ballardong People #22D3EE, Gnaala Karla Booja #FF7A1A, South West Boojarah #A3E635, Wagyl Kaip & Southern Noongar #C084FC).
+- **Label styles carry the meaning:** language groups in *italic*; ILUAs in **BOLD CAPITALS** in a dark box. A key explains this in the Layers panel and the Language-group key.
+- **"South West Boojarah":** the "#2" was removed everywhere, including `noongar_iluas_official_vertices.csv`. The NNTT register lists the agreement as "South West Boojarah #2"; match records by NNTT ID WI2017/013.
+- **Preferences:** storage key `noongar-atlas-view-v10`; v9 and v8 settings are migrated once.
 
 ### v1.0-rc6.6 changes
 
-- The "About this indicative map" panel is now **About this map and its sources**. It explains in plain English what the map is and is not, and links to the three key references above. It is still collapsed by default. Its text scrolls inside the panel if space is short.
-- The About panel and the Language-group key now open one at a time. Opening one closes the other, so both fit above the footer on smaller screens.
+- The "About this indicative map" panel is now **About this map and its sources**, in plain English, with links to the key references. Collapsed by default; its text scrolls inside the panel if space is short.
+- The About panel and the Language-group key open one at a time.
 - README: new **Key references** section.
+
+### v1.0-rc6.7 changes
+
+- **AIATSIS Map of Indigenous Australia** added as further reading in the About panel, the About tab and the README, with AIATSIS's own caution. It is linked, not reproduced, and was not used to draw any area.
+- **Research notebook:** the "you may need to sign in" note was removed; the link is a public share link.
+- **Address and postcode search is switched on** with the origin-restricted Geoapify key. A refused request (for example from a local copy) shows a plain message instead of an HTTP error.
+- **About tab clean-up:** removed four source links for the government map layers deleted in rc6 (DBCA reserves, MINEDEX, hydrography, Ramsar wetlands) and added the four key references. Fixed the broken LICENSE and third-party notice links (they pointed to a misspelt folder); they now open the files on GitHub.
