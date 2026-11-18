@@ -2,7 +2,7 @@
 
 <img src="noongar-boodja-atlas.jpg" alt="Noongar Boodja Atlas artwork" width="160" align="right"/>
 
-**Release v1.1.1 · 18 November 2026**
+**Release v1.2 · 18 November 2026**
 
 ## Key references
 
@@ -177,6 +177,12 @@ Key changes:
 - **"Also spelt" in the side panel** when you click the map or a place.
 - **Corrected attribution:** language-group areas follow the AIATSIS Map of Indigenous Australia as closely as possible.
 - **Scope statement** added; Amangu removed from the unmapped-names note.
+
+### v1.2 changes
+
+- **Resizable desktop Atlas Explorer.** Drag the narrow divider between the Explorer and map. The width is constrained to 320–620 pixels, or the available screen width, and is remembered in the existing `noongar-atlas-view-v10` preference.
+- **Keyboard resizing.** Focus the divider and use Left or Right Arrow in 16-pixel steps. Home selects the minimum width and End selects the maximum.
+- Mobile sheet behaviour is unchanged.
 
 ### v1.1.1 changes
 
