@@ -42,4 +42,9 @@ ILUA display names are shortened for readability. "South West Boojarah #2" is sh
 ### v1.1 AIATSIS sources
 
 - **AIATSIS Map of Indigenous Australia** (David R Horton, © AIATSIS 1996): the basis of the 12 language-group areas. This replaces the v1.0-rc6.7 note that described the map as further reading only.
-- **AIATSIS AustLang dataset** (data.gov.au, Creative Commons Attribution 4.0 International): 841 reference points with code, primary name, Tindale name, state or territory and coordinates are embedded in `index.html`. Attribution: "AustLang © AIATSIS, CC BY 4.0". AustLang descriptive text and status fields are not reproduced; each point links to its AIATSIS AustLang page. Points are approximate and are not boundaries.
+- **AIATSIS AustLang dataset** (data.gov.au, Creative Commons Attribution 4.0 International): 841 reference points embedded in `index.html`. Attribution: "AustLang © AIATSIS, CC BY 4.0". Descriptive text and status fields are not reproduced; each point links to its AIATSIS page. Points are approximate and are not boundaries.
+
+### v1.1.1 spellings
+
+- **Kaartdijin Noongar** (South West Aboriginal Land and Sea Council, https://www.noongarculture.org.au/): language-group names as published there. Names only are used; no other content is reproduced.
+- **AIATSIS AustLang**: primary, Tindale and Ethnologue names, and names cited from Dixon (2002) and Thieberger (1993) in the AustLang Noongar record (W41).

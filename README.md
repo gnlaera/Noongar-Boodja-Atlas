@@ -2,7 +2,7 @@
 
 <img src="noongar-boodja-atlas.jpg" alt="Noongar Boodja Atlas artwork" width="160" align="right"/>
 
-**Release v1.1 · 18 November 2026**
+**Release v1.1.1 · 18 November 2026**
 
 ## Key references
 
@@ -13,6 +13,7 @@ The Atlas is a guide only. It does not decide Traditional Ownership, cultural au
 - **Background research:** [Atlas research notebook](https://notebook.google.com/notebook/b07170cd-9173-46c6-889b-3ad53c32249c) (Google), shared as a public link. It is a working research aid, not a published source.
 - **Language-group areas:** [Map of Indigenous Australia](https://aiatsis.gov.au/explore/map-indigenous-australia) (David R Horton, © AIATSIS 1996). The 12 language-group areas are digitised to follow this map as closely as possible. AIATSIS states that its map is not exact and not suitable for native title or other land claims.
 - **AustLang:** [AIATSIS AustLang](https://aiatsis.gov.au/austlang) and the [AustLang dataset on data.gov.au](https://data.gov.au/data/dataset/austlang-dataset-001) (Creative Commons Attribution 4.0). Source of the 841 AustLang reference points. Each point links to its AustLang page.
+- **Language-group spellings:** [Kaartdijin Noongar](https://www.noongarculture.org.au/) (South West Aboriginal Land and Sea Council) and AIATSIS AustLang, alongside the Atlas's earlier name crosswalk.
 
 **Scope.** The Atlas covers Noongar Country: the six ILUA areas of the South West Native Title Settlement and the Noongar language groups within them. AustLang points across Australia are shown for wider context and link to AIATSIS.
 
@@ -25,7 +26,7 @@ A single-file interactive atlas (`index.html`) for exploring **indicative** Noon
 - **12 language-group polygons**, with 3,418 ring vertices and 3,401 connecting segments, digitised to follow the AIATSIS Map of Indigenous Australia as closely as possible.
 - **345 reference locations** (from v1.0-rc6.4; originally **290 curated reference places**), including cities, towns, natural landmarks, heritage sites, industrial facilities and mines. Many are indicative pins rather than surveyed site centres.
 - **841 AustLang reference points** (AIATSIS, CC BY 4.0), off by default.
-- **98 language-name records**, with common, historical and source-map variants, including caution flags for ambiguous names.
+- **112 language-name spellings**, with common, historical and source-map variants, including caution flags for ambiguous names.
 - Coordinate lookup, nearest mapped edge distance, on-line group candidates, nearby group boundaries, map filters, share links and CSV exports.
 - Address and postcode lookup via optional **Geoapify forward geocoding**, with user-selected candidates displayed as map markers. The key is configured and restricted to the published GitHub Pages site (see below).
 - Browser-permitted device geolocation on mobile and desktop, with an indicative reported accuracy radius, visible map centring and language-group classification.
@@ -172,16 +173,14 @@ Key changes:
 
 ### v1.1 changes
 
-- **AustLang points (all Australia).** New layer under Language groups, off by default, and a new **AustLang** quick view that zooms out to Australia.
-  - The 12 AustLang records that match the Atlas language areas (W1 to W11 and A1) are teal pins. The other 829 records with coordinates are small grey dots.
-  - Selecting a point shows its AustLang code, name, Tindale name, state or territory and a link to its AIATSIS AustLang page, with the caution "Approximate point from AustLang. Not a boundary." Non-Noongar points add "Inclusion does not imply the Atlas covers this group."
-  - AustLang status labels and descriptive text are not copied. Users follow the link to AIATSIS.
-  - AustLang names and codes are searchable (for example "Amangu" or "W11"); results are tagged "AustLang".
-  - Share links: `?aust=W11` selects a point; `?view=austlang` opens the quick view.
-  - Map attribution shows "AustLang © AIATSIS, CC BY 4.0" while the layer is on.
-  - Language-group labels are hidden below zoom 6, where they would overlap at national scale.
-- **"Also spelt" in the side panel.** Clicking the map or a place now shows common spellings for the matching language group, plus a link to its AustLang record. Selecting a language group also shows its AustLang record.
-- **Corrected attribution.** The About panel, About tab, footer, README and third-party notices now say the language-group areas follow the AIATSIS Map of Indigenous Australia as closely as possible. The earlier wording ("not used to draw any area") was wrong and has been removed.
-- **Scope statement** added to the About panel and README.
-- **Groups tab:** Amangu removed from the unmapped-names note; Wirlomin and Njunga remain.
-- **Not included yet:** AustLang alternative spellings. The supplied `austlang.csv` has no `language_synonym` field. The data.gov.au version does, and can be added later.
+- **AustLang points (all Australia).** New layer under Language groups, off by default, and a new AustLang quick view that zooms out to Australia. The 12 records that match the Atlas language areas (W1 to W11 and A1) are teal pins; the other 829 are small grey dots. Selecting a point shows its code, name, Tindale name, state and a link to its AIATSIS page, with the caution "Approximate point from AustLang. Not a boundary." AustLang names and codes are searchable. Share links: `?aust=W11`, `?view=austlang`. Map attribution shows "AustLang © AIATSIS, CC BY 4.0" while the layer is on.
+- **"Also spelt" in the side panel** when you click the map or a place.
+- **Corrected attribution:** language-group areas follow the AIATSIS Map of Indigenous Australia as closely as possible.
+- **Scope statement** added; Amangu removed from the unmapped-names note.
+
+### v1.1.1 changes
+
+- **AustLang quick view** renamed "AustLang (all Australia)" and moved next to ILUAs, so it is visible without scrolling.
+- **All spellings shown.** The side panel now lists every recorded spelling for a language group, common forms first. All spellings are treated as accepted variants; the earlier "review" flags and warnings were removed.
+- **14 spellings added** (98 to 112) from Kaartdijin Noongar (SWALSC) and AIATSIS AustLang, for example Mirnang, Bibulman, Njaki Njaki, Pipelman, Kwetjman, Wartanti, Wilmen, Yuwat and Njunga. Each record notes its source(s). All are searchable.
+- **Kaartdijin Noongar** (noongarculture.org.au) added to the About panel, About tab and README as the source for spellings.
