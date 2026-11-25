@@ -20,7 +20,6 @@ A single-file interactive atlas (`index.html`) for exploring **indicative** Noon
 ## Contents
 
 - **12 language-group polygons**, with 3,418 ring vertices and 3,401 connecting segments, retained from the user-supplied source shapefiles.
-- **345 reference locations** (from v1.0-rc6.4; originally **290 curated reference places**), including cities, towns, natural landmarks, heritage sites, industrial facilities and mines. Many are indicative pins rather than surveyed site centres.
 - **98 language-name records**, with common, historical and source-map variants, including caution flags for ambiguous names.
 - Coordinate lookup, nearest mapped edge distance, on-line group candidates, nearby group boundaries, map filters, share links and CSV exports.
 - Address and postcode lookup via optional **Geoapify forward geocoding**, with user-selected candidates displayed as map markers. The key is configured and restricted to the published GitHub Pages site (see below).
@@ -80,7 +79,6 @@ See `LICENSE.md` and `THIRD_PARTY_NOTICES.md`. The custom additional permission 
 - Spatial tests include Perth, Bunbury, a two-group border, a three-group junction, and **110 additional independent random point-in-polygon tests** against the original shapefile geometry.
 - Headless-browser checks cover desktop and multiple mobile viewport sizes (including 320, 375, 390 and 515 CSS px), bottom-sheet states, visible primary results, tooltip/coordinate positioning, panel collapse, basic search and offline vector mode.
 - The **Leaflet application hooks**, including the GPS accuracy circle, were tested using a simulated Leaflet environment; this is **not** a substitute for full live browser testing against actual online Geoscience Australia, Esri or WA WMS endpoints. Those remain outstanding before publication.
-- Geoapify address results were tested against a **mock service**, not a live API key; live geocoding and provider quota behaviour require testing after configuration. Place-centre coordinates remain approximate, especially for large-area natural features, mines and industrial complexes. They should not be used for heritage clearances or site-level decisions.
 
 The site has **not** been published to any GitHub account by this package.
 
@@ -102,7 +100,7 @@ Key changes:
 ### v1.0-rc6.4 changes
 
 - **Label colours:** label borders take the polygon colour. Label text uses a darker shade of the same colour, with at least 4.5:1 contrast.
-- **Historical v1.0-rc6.4 note, superseded in v1.1.0:** 21 supplied Wagyl-register candidates were originally added as public points. In v1.1.0, only audited and appropriately scoped records remain public; all 21 source records remain in the internal candidate register for traceability.
+- **Historical v1.0-rc6.4 note, superseded in v1.1.1:** 21 supplied Wagyl-register candidates were originally added as public points. In v1.1.1, only audited and appropriately scoped records remain public; all 21 source records remain in the internal candidate register for traceability.
 - **Fix:** cultural reference places now draw on the map. In rc6.3 the category was missing from the category list.
 - **Fix:** evidence panels no longer stack or persist after another selection.
 - **Fix:** the polygon fill readout shows the real default (22%).
@@ -143,14 +141,13 @@ Key changes:
 ### v1.0-rc6.9 changes
 
 - **Header artwork.** A small compressed copy (96 × 96 px, about 3 KB) of `noongar-boodja-atlas.jpg` is embedded in `index.html` as the header mark and browser-tab icon, so the single-file approach is kept. The full image stays in the repository for this README and for link previews (`og:image`).
-- **Eleven quick views** in one scrollable row: All layers, Language groups, ILUAs, Cities, Towns, Natural features, Heritage, Industry, Mines, Cultural places, Wagyl places. Category views show that category's symbol, show language-group areas for context, and frame the map to those places.
   - Desktop: the row scrolls sideways (mouse wheel, trackpad or Tab key) with faded edges showing there is more.
   - Mobile (720 px wide or narrower): the row is a second header line that can be swiped left and right. The quick views were removed from the ⋯ menu.
 - **How quick views and the Layers panel work together** (reviewed and tested for every quick view and every Layers control):
   - A quick view is a starting point. It sets which layers and categories show, frames the map, and keeps your basemap and opacity settings.
   - The Layers panel always shows the real state. After any quick view, every tick box matches what is on the map.
   - Changing a layer, ILUA, category or filter un-highlights the quick view but keeps everything else. Changing opacity or basemap keeps the quick view highlighted.
-  - **Historical v1.0-rc6.4 note, superseded in v1.1.0:** the former “Wagyl register only” filter was replaced by an evidence-based **Wagyl-associated** quick view. It shows only records with an explicit, attributable association.
+  - **Historical v1.0-rc6.4 note, superseded in v1.1.1:** the former “Wagyl register only” filter was replaced by an evidence-based **Wagyl-associated** quick view. It shows only records with an explicit, attributable association.
   - The Places tab list now follows the quick view, and has a new "Wagyl" filter chip.
   - Share links now include the quick view (`?view=towns`) or the Wagyl filter (`?filter=wagyl`).
   - When only one or two categories are on, all their locations show at every zoom level. The zoom-based thinning still applies when three or more categories are on.
@@ -167,7 +164,7 @@ Key changes:
 - **Restore default layers** now returns to the same first-load view (ILUAs quick view, default opacities, Australian topographic basemap).
 
 
-## v1.1.0 governance and evidence revision (25 November 2026)
+## v1.1.1 governance and evidence revision (25 November 2026)
 
 This release responds to cultural-governance feedback and a record-by-record source audit.
 
@@ -181,3 +178,12 @@ This release responds to cultural-governance feedback and a record-by-record sou
 - The decorative header artwork is identified as AI-generated and not Aboriginal artwork, a cultural map, or a depiction of actual boundaries or sites.
 
 Source strength does not equal cultural approval. Formal cultural authority and review remain separate questions.
+
+
+## v1.1.1 plain-English update (25 November 2026)
+
+- Rewrites public instructions, map notes and cultural-place details in shorter, simpler English.
+- Keeps detailed audit information in the downloadable register instead of crowding the map.
+- Renames evidence-panel fields so ordinary users can understand them.
+- Removes all Industry and Mines records, layers and quick views from the public Atlas.
+- Keeps the agreed cultural-governance and source controls from v1.1.0.

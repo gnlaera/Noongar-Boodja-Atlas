@@ -17,13 +17,13 @@ This registry distinguishes Atlas-original work from separate content and servic
 
 **Data governance:** publishing a layer with permission is not the same as having the right to issue downstream commercial or noncommercial licences to its constituent geographic records. Confirm that any language-group data permission covers the specific public repository and use by Indigenous organisations envisaged here.
 
-## Historical v1.0-rc6 cultural-reference release note (superseded by v1.1.0)
+## Historical v1.0-rc6 cultural-reference release note (superseded by v1.1.1)
 
 The Atlas integrates 36 public representative points into the main Locations catalogue. Source references are drawn from public materials published by the Department of Biodiversity, Conservation and Attractions, City of Fremantle, City of Bunbury and City of Albany. Each record identifies its source and carries a limitation stating that the point is not a cultural-site boundary and does not determine cultural authority. Public-source inclusion does not replace review by the relevant Noongar cultural authority.
 
 ### Historical v1.0-rc6.4 supplied Wagyl-register release note
 
-The internal candidate register includes 21 records (WAG-001 to WAG-021) from a supplied Wagyl geolocated register. These were displayed publicly in v1.0-rc6.4 but are not published wholesale in v1.1.0. The register lists compiled references, including internal compilations, reports and some Wikipedia pages. It does not record a publisher or public URL. These records are labelled "Supplied register - not publicly verified" and have not been reviewed by the relevant Noongar cultural authority. Rights in the underlying cultural knowledge stay with the relevant Noongar people and are not relicensed by the Atlas.
+The internal candidate register includes 21 records (WAG-001 to WAG-021) from a supplied Wagyl geolocated register. These were displayed publicly in v1.0-rc6.4 but are not published wholesale in v1.1.1. The register lists compiled references, including internal compilations, reports and some Wikipedia pages. It does not record a publisher or public URL. These records are labelled "Supplied register - not publicly verified" and have not been reviewed by the relevant Noongar cultural authority. Rights in the underlying cultural knowledge stay with the relevant Noongar people and are not relicensed by the Atlas.
 
 ### v1.0-rc6.5 ILUA naming
 
@@ -40,7 +40,7 @@ ILUA display names are shortened for readability. "South West Boojarah #2" is sh
 `noongar-boodja-atlas.jpg` and the small copy embedded in `index.html` were generated with an AI image tool by the project maintainer for this side project, and approved for use in the Atlas by GKB staff. The artwork is decorative. It is not a map, does not show real boundaries or sites, and is not the work of a named Aboriginal artist. Do not reuse it outside the Atlas without checking with GKB.
 
 
-### v1.1.0 cultural-reference and Wagyl evidence audit
+### v1.1.1 cultural-reference and Wagyl evidence audit
 
 The supplied 21-record Wagyl register is retained as an internal research and audit trail, but it is no longer published wholesale. Public display requires an identifiable source supporting the specific public claim. AI-generated syntheses, Wikipedia-style drafts and unattributed compilations are discovery leads only, not final cultural authority.
 
