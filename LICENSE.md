@@ -70,3 +70,8 @@ Section 3 is a **separate alternative grant**, not a modification of the standar
 ---
 
 **Publication checklist:** identify the actual Atlas copyright owner; record the original shapefile licensor, permission date, permitted publication and downstream reuse scope; verify third-party notices; obtain Australian legal review of the custom Indigenous community permission before treating it as legally conclusive.
+
+
+## 8. Cultural reference records and source audit
+
+A record’s public availability, source quality or inclusion in the Atlas does not grant authority to relicense underlying cultural knowledge or to represent a claim as culturally approved. AI-generated summaries and discovery aids are not treated as source authority. Users must preserve attribution, stated terminology, geographic scope and applicable community protocols.

@@ -2,7 +2,7 @@
 
 <img src="noongar-boodja-atlas.jpg" alt="Noongar Boodja Atlas artwork" width="160" align="right"/>
 
-**Release v1.2 · 18 November 2026**
+**Release v1.0-rc6.10 · 17 November 2026**
 
 ## Key references
 
@@ -11,22 +11,17 @@ The Atlas is a guide only. It does not decide Traditional Ownership, cultural au
 - **South West Native Title Settlement:** [About the Settlement Agreement](https://www.noongar.org.au/about-settlement-agreement), South West Aboriginal Land and Sea Council. Background on the Settlement and its six Indigenous Land Use Agreements (ILUAs).
 - **ILUA boundaries:** [Native Title (ILUA) (LGATE-067)](https://catalogue.data.wa.gov.au/dataset/native-title-ilua-lgate-067), Landgate, published on data.wa.gov.au. This is the source of the six ILUA extents and the 1,695 vertices in `noongar_iluas_official_vertices.csv`. Use of Landgate data is subject to Landgate's licence terms. Official ILUA records are held on the National Native Title Tribunal (NNTT) register.
 - **Background research:** [Atlas research notebook](https://notebook.google.com/notebook/b07170cd-9173-46c6-889b-3ad53c32249c) (Google), shared as a public link. It is a working research aid, not a published source.
-- **Language-group areas:** [Map of Indigenous Australia](https://aiatsis.gov.au/explore/map-indigenous-australia) (David R Horton, © AIATSIS 1996). The 12 language-group areas are digitised to follow this map as closely as possible. AIATSIS states that its map is not exact and not suitable for native title or other land claims.
-- **AustLang:** [AIATSIS AustLang](https://aiatsis.gov.au/austlang) and the [AustLang dataset on data.gov.au](https://data.gov.au/data/dataset/austlang-dataset-001) (Creative Commons Attribution 4.0). Source of the 841 AustLang reference points. Each point links to its AustLang page.
-- **Language-group spellings:** [Kaartdijin Noongar](https://www.noongarculture.org.au/) (South West Aboriginal Land and Sea Council) and AIATSIS AustLang, alongside the Atlas's earlier name crosswalk.
+- **Further reading:** [Map of Indigenous Australia](https://aiatsis.gov.au/explore/map-indigenous-australia), Australian Institute of Aboriginal and Torres Strait Islander Studies (AIATSIS). A national view of the general locations of larger language, social or nation groupings. AIATSIS states that it is not exact and not suitable for native title or other land claims. **It was not used to draw any area in this Atlas**, and some names and spellings differ. The AIATSIS map may not be reproduced without permission, so the Atlas links to it only.
 
-**Scope.** The Atlas covers Noongar Country: the six ILUA areas of the South West Native Title Settlement and the Noongar language groups within them. AustLang points across Australia are shown for wider context and link to AIATSIS.
-
-Other sources are listed in `THIRD_PARTY_NOTICES.md` and, for each place of cultural relevance, in `noongar_places_candidate_register.csv`.
+Other sources are listed in `THIRD_PARTY_NOTICES.md` and, for each cultural reference place, in `noongar_places_candidate_register.csv`.
 
 A single-file interactive atlas (`index.html`) for exploring **indicative** Noongar language-group geography in south-western Western Australia. The Atlas is a geographic reference, not a legal or cultural determination of Traditional Ownership, native title, language authority, or Aboriginal heritage status.
 
 ## Contents
 
-- **12 language-group polygons**, with 3,418 ring vertices and 3,401 connecting segments, digitised to follow the AIATSIS Map of Indigenous Australia as closely as possible.
+- **12 language-group polygons**, with 3,418 ring vertices and 3,401 connecting segments, retained from the user-supplied source shapefiles.
 - **345 reference locations** (from v1.0-rc6.4; originally **290 curated reference places**), including cities, towns, natural landmarks, heritage sites, industrial facilities and mines. Many are indicative pins rather than surveyed site centres.
-- **841 AustLang reference points** (AIATSIS, CC BY 4.0), off by default.
-- **112 language-name spellings**, with common, historical and source-map variants, including caution flags for ambiguous names.
+- **98 language-name records**, with common, historical and source-map variants, including caution flags for ambiguous names.
 - Coordinate lookup, nearest mapped edge distance, on-line group candidates, nearby group boundaries, map filters, share links and CSV exports.
 - Address and postcode lookup via optional **Geoapify forward geocoding**, with user-selected candidates displayed as map markers. The key is configured and restricted to the published GitHub Pages site (see below).
 - Browser-permitted device geolocation on mobile and desktop, with an indicative reported accuracy radius, visible map centring and language-group classification.
@@ -95,9 +90,9 @@ This release keeps the single-file `index.html` deployment model while reorganis
 
 Key changes:
 
-- 36 public-source places are integrated into the normal Locations catalogue under `Place of cultural relevance`.
+- 36 public-source places are integrated into the normal Locations catalogue under `Cultural reference place`.
 - All 36 are displayed and searchable by display name, alternate name, category and place type.
-- Selecting a place of cultural relevance shows its public source, publisher, coordinate quality and limitation.
+- Selecting a cultural reference place shows its public source, publisher, coordinate quality and limitation.
 - The public points are orientation references, not Aboriginal heritage-site boundaries and not determinations of cultural authority.
 - Basemap opacity defaults to 100%, language-group fill to 22%, language-group boundaries to 70%, ILUA boundaries to 80%, labels to 100%, and location markers to 85%.
 - Language-group and ILUA labels use opaque text boxes. From v1.0-rc6.5 they are styled differently: see the v1.0-rc6.5 notes below.
@@ -107,11 +102,11 @@ Key changes:
 ### v1.0-rc6.4 changes
 
 - **Label colours:** label borders take the polygon colour. Label text uses a darker shade of the same colour, with at least 4.5:1 contrast.
-- **21 Wagyl register places added** (WAG-001 to WAG-021) as "Place of cultural relevance" (Atlas IDs 325 to 345). Total locations: 345. Places of cultural relevance: 57. These records have **no public URL**. They show "no public URL recorded", "Not reviewed" and "Conditional - cultural review required".
-- **Fix:** places of cultural relevance now draw on the map. In rc6.3 the category was missing from the category list.
+- **Historical v1.0-rc6.4 note, superseded in v1.1.0:** 21 supplied Wagyl-register candidates were originally added as public points. In v1.1.0, only audited and appropriately scoped records remain public; all 21 source records remain in the internal candidate register for traceability.
+- **Fix:** cultural reference places now draw on the map. In rc6.3 the category was missing from the category list.
 - **Fix:** evidence panels no longer stack or persist after another selection.
 - **Fix:** the polygon fill readout shows the real default (22%).
-- **Data:** places of cultural relevance now have their language-group (`inside`) values, so group filters and counts include them.
+- **Data:** cultural reference places now have their language-group (`inside`) values, so group filters and counts include them.
 - **Register CSV:** `noongar_places_candidate_register.csv` holds all 57 records, with new `Alternate_Names`, `Region_Named_In_Source` and `Atlas_ID` columns.
 
 ### v1.0-rc6.5 changes
@@ -141,7 +136,7 @@ Key changes:
 - **Fix: locations could not be clicked on the online map.** A transparent ILUA drawing layer sat above the location markers and caught every click, so clicking a dot selected a bare coordinate instead of the place. Location markers now sit in their own top layer.
 - **Bigger click targets.** Each marker has a 26 px click area (34 px on touch screens), even though the symbol itself is smaller. A click or tap within 16 px (22 px on touch) of a visible location selects that location. Where symbols overlap, the one nearest the pointer is chosen.
 - **Wagyl places quick view** shows its symbols about a third larger.
-- **Marker symbols by category** (shape and colour, so meaning does not rely on colour alone): City / major centre = square; Town / locality = small dot; Natural feature = triangle; Historic / heritage = diamond; Industrial / infrastructure = hexagon; Mine / extractive = cross; Place of cultural relevance = ring. The symbols appear in the Layers panel, the Places list and the offline map. Hovering a symbol shows its name.
+- **Marker symbols by category** (shape and colour, so meaning does not rely on colour alone): City / major centre = square; Town / locality = small dot; Natural feature = triangle; Historic / heritage = diamond; Industrial / infrastructure = hexagon; Mine / extractive = cross; Cultural reference place = ring. The symbols appear in the Layers panel, the Places list and the offline map. Hovering a symbol shows its name.
 - **Selected place** is marked with an orange ring that never blocks clicks.
 - **Fix (offline map):** clicking a location symbol on the offline vector map now selects that place.
 
@@ -155,7 +150,7 @@ Key changes:
   - A quick view is a starting point. It sets which layers and categories show, frames the map, and keeps your basemap and opacity settings.
   - The Layers panel always shows the real state. After any quick view, every tick box matches what is on the map.
   - Changing a layer, ILUA, category or filter un-highlights the quick view but keeps everything else. Changing opacity or basemap keeps the quick view highlighted.
-  - **New "Wagyl register only" tick box** under Place of cultural relevance. It narrows only that category, so ticking Towns while in the Wagyl view adds towns without bringing back all 57 cultural places. It stays on until you untick it, choose another quick view, or Restore default layers.
+  - **Historical v1.0-rc6.4 note, superseded in v1.1.0:** the former “Wagyl register only” filter was replaced by an evidence-based **Wagyl-associated** quick view. It shows only records with an explicit, attributable association.
   - The Places tab list now follows the quick view, and has a new "Wagyl" filter chip.
   - Share links now include the quick view (`?view=towns`) or the Wagyl filter (`?filter=wagyl`).
   - When only one or two categories are on, all their locations show at every zoom level. The zoom-based thinning still applies when three or more categories are on.
@@ -171,22 +166,18 @@ Key changes:
   - The offline map cannot draw ILUAs, so it opens with All layers instead.
 - **Restore default layers** now returns to the same first-load view (ILUAs quick view, default opacities, Australian topographic basemap).
 
-### v1.1 changes
 
-- **AustLang points (all Australia).** New layer under Language groups, off by default, and a new AustLang quick view that zooms out to Australia. The 12 records that match the Atlas language areas (W1 to W11 and A1) are teal pins; the other 829 are small grey dots. Selecting a point shows its code, name, Tindale name, state and a link to its AIATSIS page, with the caution "Approximate point from AustLang. Not a boundary." AustLang names and codes are searchable. Share links: `?aust=W11`, `?view=austlang`. Map attribution shows "AustLang © AIATSIS, CC BY 4.0" while the layer is on.
-- **"Also spelt" in the side panel** when you click the map or a place.
-- **Corrected attribution:** language-group areas follow the AIATSIS Map of Indigenous Australia as closely as possible.
-- **Scope statement** added; Amangu removed from the unmapped-names note.
+## v1.1.0 governance and evidence revision (25 November 2026)
 
-### v1.2 changes
+This release responds to cultural-governance feedback and a record-by-record source audit.
 
-- **Resizable desktop Atlas Explorer.** Drag the narrow divider between the Explorer and map. The width is constrained to 320–620 pixels, or the available screen width, and is remembered in the existing `noongar-atlas-view-v10` preference.
-- **Keyboard resizing.** Focus the divider and use Left or Right Arrow in 16-pixel steps. Home selects the minimum width and End selects the maximum.
-- Mobile sheet behaviour is unchanged.
+- Language-group areas are explicitly described and styled as **indicative areas**, not fixed cultural boundaries. They must not be used to determine Traditional Ownership, cultural authority, who can speak for Country, heritage responsibility or legal rights.
+- The public layer is renamed **Cultural reference places**. It is a selected, incomplete set; omission does not imply a lack of cultural significance.
+- Public records distinguish geographic identification, documented cultural significance and an explicit Wagyl/Waugal/Waggal/Woggle/Warrgul association.
+- Unsupported supplied-register records are retained in the internal CSV for research history but excluded from the public Atlas.
+- WAG-011 is reframed as **Mandurah estuary and connected waterways**, preserving Franklyn Nannup’s source terms “female Waggal” and “Woggles Whiskers” and avoiding an unsupported point-specific boundary.
+- WAG-012 is merged into WAG-011 and is not displayed separately.
+- WAG-004 and WAG-013 remain public as cultural reference places without a place-specific Wagyl claim.
+- The decorative header artwork is identified as AI-generated and not Aboriginal artwork, a cultural map, or a depiction of actual boundaries or sites.
 
-### v1.1.1 changes
-
-- **AustLang quick view** renamed "AustLang (all Australia)" and moved next to ILUAs, so it is visible without scrolling.
-- **All spellings shown.** The side panel now lists every recorded spelling for a language group, common forms first. All spellings are treated as accepted variants; the earlier "review" flags and warnings were removed.
-- **14 spellings added** (98 to 112) from Kaartdijin Noongar (SWALSC) and AIATSIS AustLang, for example Mirnang, Bibulman, Njaki Njaki, Pipelman, Kwetjman, Wartanti, Wilmen, Yuwat and Njunga. Each record notes its source(s). All are searchable.
-- **Kaartdijin Noongar** (noongarculture.org.au) added to the About panel, About tab and README as the source for spellings.
+Source strength does not equal cultural approval. Formal cultural authority and review remain separate questions.
